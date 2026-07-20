@@ -1,20 +1,34 @@
-from rubpy import Client
+from flask import Flask
 
-bot = Client("BJJAIF0STZGBTRLGEVWBIMBUBJRTNUCIPYBJVSWMNDOMFJISTZUCCINREVFXDVSI")
+app = Flask(__name__)
 
-@bot.on_message()
-async def messages(update):
-    text = update.text
+@app.route("/")
+def home():
+    return """
+    <html>
+    <head>
+        <title>FF ASH Tournament</title>
+    </head>
+    <body style="background:#111;color:#FFD700;text-align:center;font-family:Arial;">
+        <h1>🎮 FF ASH Tournament</h1>
+        <h2>به سایت رسمی تورنومنت خوش آمدید</h2>
 
-    if text == "/start":
-        await update.reply(
-            "سلام!\n"
-            "برای ثبت نام کلمه register را ارسال کنید."
-        )
+        <h3>ثبت نام مسابقات</h3>
 
-    elif text == "register":
-        await update.reply(
-            "ثبت نام شما با موفقیت انجام شد ✅"
-        )
+        <form>
+            <input type="text" placeholder="نام بازیکن"><br><br>
+            <input type="text" placeholder="UID فری فایر"><br><br>
+            <button>ثبت نام</button>
+        </form>
 
-bot.run()
+        <br>
+
+        <h3>پشتیبانی</h3>
+        <p>@IM_SHAH__1</p>
+        <p>@MY_SHAYAN_1</p>
+    </body>
+    </html>
+    """
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
