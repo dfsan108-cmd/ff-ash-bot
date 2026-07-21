@@ -41,6 +41,269 @@ def home():
 
 
     return """
+    return """
+<html>
+<head>
+<title>FF ASH Tournament</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+background:#090909;
+color:white;
+font-family:Arial;
+text-align:center;
+margin:0;
+}
+
+
+.header{
+padding:35px;
+background:linear-gradient(90deg,#FFD700,#111);
+color:black;
+font-size:35px;
+font-weight:bold;
+}
+
+
+.box{
+background:#151515;
+margin:20px;
+padding:25px;
+border-radius:20px;
+border:2px solid #FFD700;
+box-shadow:0 0 15px #FFD700;
+}
+
+
+h2{
+color:#FFD700;
+}
+
+
+input,select{
+
+width:80%;
+padding:14px;
+margin:8px;
+border-radius:10px;
+border:none;
+
+}
+
+
+button{
+
+background:#FFD700;
+color:black;
+padding:15px 35px;
+border-radius:15px;
+border:none;
+font-weight:bold;
+font-size:16px;
+
+}
+
+
+button:hover{
+
+background:white;
+
+}
+
+
+.card{
+
+display:inline-block;
+background:#222;
+padding:20px;
+margin:10px;
+border-radius:15px;
+border:1px solid #FFD700;
+
+}
+
+
+.gold{
+
+color:#FFD700;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+🏆 FF ASH TOURNAMENT 🏆
+
+</div>
+
+
+
+<div class="box">
+
+<h2>
+🔥 بزرگترین تورنومنت فری فایر
+</h2>
+
+<p>
+به مسابقات رسمی FF ASH خوش آمدید
+</p>
+
+<p class="gold">
+جوایز ویژه برای برندگان 🥇
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h2>
+📊 آمار مسابقات
+</h2>
+
+
+<div class="card">
+50+
+<br>
+بازیکن
+</div>
+
+
+<div class="card">
+10+
+<br>
+مسابقه
+</div>
+
+
+<div class="card">
+1000+
+<br>
+بازدید
+</div>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h2>
+📝 ثبت نام مسابقه
+</h2>
+
+
+<form method="POST">
+
+
+<input name="name" placeholder="نام بازیکن" required>
+
+<br>
+
+
+<input name="uid" placeholder="UID فری فایر" required>
+
+<br>
+
+
+<input name="phone" placeholder="شماره تماس" required>
+
+<br>
+
+
+<button>
+ثبت نام 🏆
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h2>
+📜 قوانین مسابقه
+</h2>
+
+
+<p>
+✔ ورود با UID واقعی
+</p>
+
+<p>
+✔ رعایت قوانین بازی
+</p>
+
+<p>
+✔ تصمیم نهایی با مدیریت FF ASH
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h2>
+📞 پشتیبانی
+</h2>
+
+
+<p>
+@IM_SHAH__1
+</p>
+
+<p>
+@MY_SHAYAN_1
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+<h2>
+👑 مدیریت
+</h2>
+
+<p>
+ASH ADMIN PANEL
+</p>
+
+</div>
+
+
+
+</body>
+</html>
+"""
     <html>
     <body style="background:#111;color:white;text-align:center">
 
