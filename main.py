@@ -1,3 +1,4 @@
+print("FF ASH STARTED")
 from flask import Flask, request, redirect, session
 import sqlite3
 
