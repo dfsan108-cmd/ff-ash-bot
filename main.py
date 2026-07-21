@@ -1,9 +1,10 @@
-from flask import Flask, request
+from flask import Flask, request, redirect, session
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = "FFASH_SECRET_KEY"
 
-# ساخت دیتابیس
+
 def create_db():
     conn = sqlite3.connect("players.db")
     c = conn.cursor()
@@ -18,11 +19,14 @@ def create_db():
     conn.commit()
     conn.close()
 
+
 create_db()
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET","POST"])
 def home():
+
+    message = ""
 
     if request.method == "POST":
         name = request.form["name"]
@@ -32,100 +36,105 @@ def home():
         conn = sqlite3.connect("players.db")
         c = conn.cursor()
         c.execute(
-            "INSERT INTO players (name, uid, phone) VALUES (?,?,?)",
-            (name, uid, phone)
+            "INSERT INTO players(name,uid,phone) VALUES(?,?,?)",
+            (name,uid,phone)
         )
         conn.commit()
         conn.close()
 
-        message = "✅ ثبت نام با موفقیت انجام شد"
-
-    else:
-        message = ""
+        message="✅ ثبت نام انجام شد"
 
 
     return f"""
-<!DOCTYPE html>
-<html>
-<head>
-<title>FF ASH Tournament</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <html>
+    <body style="background:#111;color:white;text-align:center;font-family:Arial">
 
-<style>
-body{{
-background:#111;
-color:white;
-font-family:Arial;
-text-align:center;
-}}
+    <h1 style="color:#FFD700">
+    🏆 FF ASH TOURNAMENT
+    </h1>
 
-.box{{
-background:#1a1a1a;
-margin:20px;
-padding:20px;
-border:2px solid #FFD700;
-border-radius:15px;
-}}
+    <form method="POST">
 
-input{{
-padding:12px;
-margin:8px;
-width:80%;
-border-radius:8px;
-}}
+    <input name="name" placeholder="نام بازیکن"><br><br>
+    <input name="uid" placeholder="UID فری فایر"><br><br>
+    <input name="phone" placeholder="شماره تماس"><br><br>
 
-button{{
-background:#FFD700;
-padding:12px 25px;
-border-radius:10px;
-font-weight:bold;
-}}
-</style>
+    <button style="background:#FFD700;padding:10px">
+    ثبت نام
+    </button>
 
-</head>
+    </form>
 
-<body>
+    <h3 style="color:#FFD700">{message}</h3>
 
-<h1 style="color:#FFD700">
-🏆 FF ASH TOURNAMENT 🏆
-</h1>
+    </body>
+    </html>
+    """
 
 
-<div class="box">
+@app.route("/admin", methods=["GET","POST"])
+def admin():
 
-<h2>📝 ثبت نام بازیکن</h2>
+    if "admin" not in session:
 
-<form method="POST">
+        if request.method=="POST":
 
-<input name="name" placeholder="نام بازیکن" required><br>
-
-<input name="uid" placeholder="UID فری فایر" required><br>
-
-<input name="phone" placeholder="شماره تماس" required><br>
-
-<button>
-ثبت نام
-</button>
-
-</form>
-
-<p style="color:#FFD700">
-{message}
-</p>
-
-</div>
+            if request.form["password"]=="ASH2026":
+                session["admin"]=True
+                return redirect("/admin")
 
 
-<div class="box">
-<h2>👑 FF ASH ADMIN</h2>
-<p>Players Database Active</p>
-</div>
+        return """
+        <html>
+        <body style="background:#111;color:white;text-align:center">
+
+        <h2>👑 ASH ADMIN LOGIN</h2>
+
+        <form method="POST">
+        <input name="password" type="password" placeholder="رمز">
+        <button>ورود</button>
+        </form>
+
+        </body>
+        </html>
+        """
 
 
-</body>
-</html>
-"""
+    conn=sqlite3.connect("players.db")
+    c=conn.cursor()
+
+    players=c.execute(
+        "SELECT * FROM players"
+    ).fetchall()
+
+    conn.close()
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    html="""
+    <html>
+    <body style="background:#111;color:white;text-align:center">
+
+    <h1 style="color:#FFD700">
+    👑 بازیکنان ثبت نام شده
+    </h1>
+    """
+
+
+    for p in players:
+        html += f"""
+        <div style="border:2px solid #FFD700;margin:10px;padding:10px">
+        نام: {p[1]}<br>
+        UID: {p[2]}<br>
+        شماره: {p[3]}
+        </div>
+        """
+
+
+    html += "</body></html>"
+
+    return html
+
+
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0",port=10000)
