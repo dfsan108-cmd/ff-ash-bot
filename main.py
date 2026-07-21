@@ -447,6 +447,7 @@ def join():
 
         conn.commit()
         conn.close()
+        msg = "ثبت شرکت انجام شد ✅"
     return """
     <html>
     <body style="background:#111;color:white;text-align:center">
