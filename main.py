@@ -424,9 +424,11 @@ def customs():
 
     <p>⏰ ساعت: 20:00</p>
 
+    <a href="/join">
     <button>
-    شرکت در کاستوم
+    شرکت در کاستوم 🎮
     </button>
+    </a>
 
     </div>
 
