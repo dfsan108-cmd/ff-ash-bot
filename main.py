@@ -16,21 +16,15 @@ PASSWORD = "ASH2026"
 def db():
     conn = sqlite3.connect("players.db")
     conn.execute("""
-    CREATE TABLE IF NOT EXISTS players(
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        uid TEXT,
-        phone TEXT
+    CREATE TABLE IF NOT EXISTS custom_players(
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    uid TEXT,
+    phone TEXT
+
     )
     """)
     
-    conn.execute("""
-    CREATE TABLE IF NOT EXISTS custom_players(
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        uid TEXT
-    )
-    """)
     
     return conn
 
@@ -436,9 +430,22 @@ def customs():
     </html>
         """
 
-@app.route("/join")
+@app.route("/join", methods=["GET","POST"])
 def join():
+    if request.method=="POST":
 
+        conn=db()
+
+        conn.execute(
+            "INSERT INTO custom_players(name,uid) VALUES(?,?)",
+            (
+                request.form["name"],
+                request.form["uid"]
+            )
+        )
+
+        conn.commit()
+        conn.close()
     return """
     <html>
     <body style="background:#111;color:white;text-align:center">
