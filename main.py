@@ -41,7 +41,6 @@ def home():
 
 
     return """
-    return """
 <html>
 <head>
 <title>FF ASH Tournament</title>
