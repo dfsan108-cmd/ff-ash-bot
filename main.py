@@ -24,8 +24,8 @@ def db():
     )
     """)
 
-conn.execute("""
-CREATE TABLE IF NOT EXISTS custom_players(
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS custom_players(
     id INTEGER PRIMARY KEY,
     name TEXT,
     uid TEXT
