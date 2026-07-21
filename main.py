@@ -437,11 +437,12 @@ def join():
         conn=db()
 
         conn.execute(
-            "INSERT INTO custom_players(name,uid) VALUES(?,?)",
-            (
-                request.form["name"],
-                request.form["uid"]
-            )
+            "INSERT INTO custom_players(name,uid,phone) VALUES(?,?,?)",
+(
+    request.form["name"],
+    request.form["uid"],
+    request.form["phone"]
+)
         )
 
         conn.commit()
