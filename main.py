@@ -10,6 +10,7 @@ def home():
 <head>
 <title>FF ASH Tournament</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 background:#111;
@@ -19,6 +20,7 @@ margin:0;
 padding:0;
 text-align:center;
 }
+
 .header{
 background:linear-gradient(90deg,#FFD700,#222);
 padding:25px;
@@ -26,6 +28,7 @@ font-size:35px;
 font-weight:bold;
 color:black;
 }
+
 .box{
 background:#1a1a1a;
 margin:15px;
@@ -33,6 +36,7 @@ padding:20px;
 border-radius:15px;
 border:2px solid #FFD700;
 }
+
 input{
 width:80%;
 padding:12px;
@@ -40,6 +44,7 @@ margin:8px;
 border:none;
 border-radius:8px;
 }
+
 button{
 background:#FFD700;
 color:black;
@@ -48,11 +53,13 @@ border:none;
 border-radius:10px;
 font-weight:bold;
 }
+
 .stats{
 font-size:20px;
 color:#FFD700;
 }
 </style>
+
 </head>
 
 <body>
@@ -61,10 +68,12 @@ color:#FFD700;
 🏆 FF ASH TOURNAMENT 🏆
 </div>
 
+
 <div class="box">
 <h2>🎮 به تورنومنت فری فایر خوش آمدید</h2>
 <p>ثبت نام مسابقات رسمی FF ASH</p>
 </div>
+
 
 <div class="box">
 <h2>📝 ثبت نام</h2>
@@ -74,55 +83,43 @@ color:#FFD700;
 <input type="text" placeholder="شماره تماس"><br>
 
 <button>ثبت نام</button>
+
 </div>
+
 
 <div class="box">
 <h2>📊 آمار</h2>
+
 <div class="stats">
 50+ بازیکن<br>
 10+ تورنومنت<br>
 1000+ بازدید
 </div>
+
 </div>
+
 
 <div class="box">
 <h2>📞 پشتیبانی</h2>
+
 <p>@IM_SHAH__1</p>
 <p>@MY_SHAYAN_1</p>
+
 </div>
+
 
 <div class="box">
 <h2>👑 مدیریت</h2>
+
 <p>ASH ADMIN PANEL</p>
+
 </div>
+
 
 </body>
 </html>
 """
-    <html>
-    <head>
-        <title>FF ASH Tournament</title>
-    </head>
-    <body style="background:#111;color:#FFD700;text-align:center;font-family:Arial;">
-        <h1>🎮 FF ASH Tournament</h1>
-        <h2>به سایت رسمی تورنومنت خوش آمدید</h2>
 
-        <h3>ثبت نام مسابقات</h3>
-
-        <form>
-            <input type="text" placeholder="نام بازیکن"><br><br>
-            <input type="text" placeholder="UID فری فایر"><br><br>
-            <button>ثبت نام</button>
-        </form>
-
-        <br>
-
-        <h3>پشتیبانی</h3>
-        <p>@IM_SHAH__1</p>
-        <p>@MY_SHAYAN_1</p>
-    </body>
-    </html>
-    """
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
