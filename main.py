@@ -223,7 +223,7 @@ color:#FFD700;
 <p>
 👥 ظرفیت مسابقه:
 <br>
-""" + TOURNAMENT["capacity"] + """
+48 بازیکن
 </p>
 
 <p>
