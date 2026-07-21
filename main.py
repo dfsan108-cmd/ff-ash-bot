@@ -238,36 +238,6 @@ color:#FFD700;
 """ + TOURNAMENT["third"] + """
 </p>
 
-</div>
-<p>
-⏰ ساعت برگزاری:
-<br>
-""" + TOURNAMENT["time"] + """
-</p>
-
-<p>
-💰 هزینه ورود:
-<br>
-""" + TOURNAMENT["price"] + """
-</p>
-
-<p>
-🥇 نفر اول:
-<br>
-""" + TOURNAMENT["first"] + """
-</p>
-
-<p>
-🥈 نفر دوم:
-<br>
-""" + TOURNAMENT["second"] + """
-</p>
-
-<p>
-🥉 نفر سوم:
-<br>
-""" + TOURNAMENT["third"] + """
-</p>
 
 <div class="box">
 
