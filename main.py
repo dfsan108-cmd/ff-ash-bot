@@ -1,118 +1,124 @@
-from flask import Flask
+from flask import Flask, request
+import sqlite3
 
 app = Flask(__name__)
 
-@app.route("/")
+# ساخت دیتابیس
+def create_db():
+    conn = sqlite3.connect("players.db")
+    c = conn.cursor()
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS players(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        uid TEXT,
+        phone TEXT
+    )
+    """)
+    conn.commit()
+    conn.close()
+
+create_db()
+
+
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return """
+
+    if request.method == "POST":
+        name = request.form["name"]
+        uid = request.form["uid"]
+        phone = request.form["phone"]
+
+        conn = sqlite3.connect("players.db")
+        c = conn.cursor()
+        c.execute(
+            "INSERT INTO players (name, uid, phone) VALUES (?,?,?)",
+            (name, uid, phone)
+        )
+        conn.commit()
+        conn.close()
+
+        message = "✅ ثبت نام با موفقیت انجام شد"
+
+    else:
+        message = ""
+
+
+    return f"""
 <!DOCTYPE html>
 <html>
 <head>
 <title>FF ASH Tournament</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{
+body{{
 background:#111;
 color:white;
 font-family:Arial;
-margin:0;
-padding:0;
 text-align:center;
-}
+}}
 
-.header{
-background:linear-gradient(90deg,#FFD700,#222);
-padding:25px;
-font-size:35px;
-font-weight:bold;
-color:black;
-}
-
-.box{
+.box{{
 background:#1a1a1a;
-margin:15px;
+margin:20px;
 padding:20px;
-border-radius:15px;
 border:2px solid #FFD700;
-}
+border-radius:15px;
+}}
 
-input{
-width:80%;
+input{{
 padding:12px;
 margin:8px;
-border:none;
+width:80%;
 border-radius:8px;
-}
+}}
 
-button{
+button{{
 background:#FFD700;
-color:black;
 padding:12px 25px;
-border:none;
 border-radius:10px;
 font-weight:bold;
-}
-
-.stats{
-font-size:20px;
-color:#FFD700;
-}
+}}
 </style>
 
 </head>
 
 <body>
 
-<div class="header">
+<h1 style="color:#FFD700">
 🏆 FF ASH TOURNAMENT 🏆
-</div>
+</h1>
 
 
 <div class="box">
-<h2>🎮 به تورنومنت فری فایر خوش آمدید</h2>
-<p>ثبت نام مسابقات رسمی FF ASH</p>
-</div>
 
+<h2>📝 ثبت نام بازیکن</h2>
 
-<div class="box">
-<h2>📝 ثبت نام</h2>
+<form method="POST">
 
-<input type="text" placeholder="نام بازیکن"><br>
-<input type="text" placeholder="UID فری فایر"><br>
-<input type="text" placeholder="شماره تماس"><br>
+<input name="name" placeholder="نام بازیکن" required><br>
 
-<button>ثبت نام</button>
+<input name="uid" placeholder="UID فری فایر" required><br>
 
-</div>
+<input name="phone" placeholder="شماره تماس" required><br>
 
+<button>
+ثبت نام
+</button>
 
-<div class="box">
-<h2>📊 آمار</h2>
+</form>
 
-<div class="stats">
-50+ بازیکن<br>
-10+ تورنومنت<br>
-1000+ بازدید
-</div>
+<p style="color:#FFD700">
+{message}
+</p>
 
 </div>
 
 
 <div class="box">
-<h2>📞 پشتیبانی</h2>
-
-<p>@IM_SHAH__1</p>
-<p>@MY_SHAYAN_1</p>
-
-</div>
-
-
-<div class="box">
-<h2>👑 مدیریت</h2>
-
-<p>ASH ADMIN PANEL</p>
-
+<h2>👑 FF ASH ADMIN</h2>
+<p>Players Database Active</p>
 </div>
 
 
