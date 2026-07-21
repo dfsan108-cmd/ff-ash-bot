@@ -204,7 +204,7 @@ color:#FFD700;
 
 
 <div class="box">
-<div class="box">
+
 
 <h2>🏆 اطلاعات تورنومنت</h2>
 
