@@ -24,13 +24,13 @@ def db():
     )
     """)
 
-    conn.execute("""
+        conn.execute("""
     CREATE TABLE IF NOT EXISTS custom_players(
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    uid TEXT
-)
-""")
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        uid TEXT
+    )
+    """)
     
     return conn
 
