@@ -373,11 +373,16 @@ def admin():
 
 
     conn=db()
-    players=conn.execute(
-        "SELECT * FROM players"
-    ).fetchall()
 
-    text="<h1>👑 ASH PANEL</h1>"
+players=conn.execute(
+    "SELECT * FROM players"
+).fetchall()
+
+custom_players=conn.execute(
+    "SELECT * FROM custom_players"
+).fetchall()
+
+text="<h1>👑 ASH PANEL</h1>"
 
     for p in players:
         text += f"""
@@ -388,7 +393,18 @@ def admin():
         </p>
         <hr>
         """
+text += "<h2>🎮 شرکت کنندگان کاستوم</h2>"
 
+for c in custom_players:
+    text += f"""
+    <p>
+    نام: {c[1]}<br>
+    UID: {c[2]}<br>
+    شماره: {c[3]}
+    </p>
+    <hr>
+    """
+    
     return text
 
 @app.route("/customs")
