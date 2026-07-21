@@ -15,17 +15,25 @@ PASSWORD = "ASH2026"
 
 def db():
     conn = sqlite3.connect("players.db")
-    conn.execute("""
-    CREATE TABLE IF NOT EXISTS custom_players(
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    uid TEXT,
-    phone TEXT
 
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS players(
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        uid TEXT,
+        phone TEXT
     )
     """)
-    
-    
+
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS custom_players(
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        uid TEXT,
+        phone TEXT
+    )
+    """)
+
     return conn
 
 
