@@ -387,6 +387,41 @@ def admin():
 
     return text
 
+@app.route("/customs")
+def customs():
 
+    return """
+    <html>
+    <body style="background:#111;color:white;text-align:center;font-family:Arial">
+
+    <h1 style="color:#FFD700">
+    🎮 FF ASH CUSTOM ROOMS
+    </h1>
+
+    <div style="
+    background:#1a1a1a;
+    margin:20px;
+    padding:20px;
+    border:2px solid #FFD700;
+    border-radius:15px;
+    ">
+
+    <h2>🏆 کاستوم شماره 1</h2>
+
+    <p>👥 ظرفیت: 48 نفر</p>
+
+    <p>💰 ورودی: 50,000 تومان</p>
+
+    <p>⏰ ساعت: 20:00</p>
+
+    <button>
+    شرکت در کاستوم
+    </button>
+
+    </div>
+
+    </body>
+    </html>
+    """
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=10000)
