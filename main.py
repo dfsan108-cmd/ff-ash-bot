@@ -373,16 +373,17 @@ def admin():
 
 
     conn=db()
+    conn=db()
 
-players=conn.execute(
-    "SELECT * FROM players"
-).fetchall()
+    players=conn.execute(
+        "SELECT * FROM players"
+    ).fetchall()
 
-custom_players=conn.execute(
-    "SELECT * FROM custom_players"
-).fetchall()
+    custom_players=conn.execute(
+        "SELECT * FROM custom_players"
+    ).fetchall()
 
-text="<h1>👑 ASH PANEL</h1>"
+    text="<h1>👑 ASH PANEL</h1>"
 
     for p in players:
         text += f"""
@@ -393,18 +394,21 @@ text="<h1>👑 ASH PANEL</h1>"
         </p>
         <hr>
         """
-text += "<h2>🎮 شرکت کنندگان کاستوم</h2>"
 
-for c in custom_players:
-    text += f"""
-    <p>
-    نام: {c[1]}<br>
-    UID: {c[2]}<br>
-    شماره: {c[3]}
-    </p>
-    <hr>
-    """
-    
+    text += "<h2>🎮 شرکت کنندگان کاستوم</h2>"
+
+    for c in custom_players:
+        text += f"""
+        <p>
+        نام: {c[1]}<br>
+        UID: {c[2]}<br>
+        شماره: {c[3]}
+        </p>
+        <hr>
+        """
+
+    conn.close()
+
     return text
 
 @app.route("/customs")
