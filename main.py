@@ -434,9 +434,10 @@ def customs():
 
     </body>
     </html>
-    """
-    @app.route("/join")
-    def join():
+        """
+
+@app.route("/join")
+def join():
 
     return """
     <html>
