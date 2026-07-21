@@ -5,10 +5,10 @@ app = Flask(__name__)
 app.secret_key = "FFASH2026"
 TOURNAMENT = {
     "time": "20:00",
-    "price": "50,000 تومان",
-    "first": "5,000,000 تومان",
-    "second": "2,000,000 تومان",
-    "third": "1,000,000 تومان"
+    "price": "15,000 تومان",
+    "first": ",110 جم",
+    "second": ",30 هزار تومان",
+    "third": "20 هزار تومان"
 }
 PASSWORD = "ASH2026"
 
