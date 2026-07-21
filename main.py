@@ -447,11 +447,15 @@ def join():
     🎮 شرکت در کاستوم
     </h1>
 
-    <form>
+    <form method="POST">
 
-    <input placeholder="نام بازیکن"><br><br>
+<input name="name" placeholder="نام بازیکن"><br><br>
 
-    <input placeholder="UID فری فایر"><br><br>
+<input name="uid" placeholder="UID فری فایر"><br><br>
+
+<input name="phone" placeholder="شماره تماس"><br><br>
+
+
 
     <button>
     ثبت شرکت
