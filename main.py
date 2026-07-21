@@ -435,6 +435,31 @@ def customs():
     </body>
     </html>
     """
-    
+    @app.route("/join")
+def join():
+
+    return """
+    <html>
+    <body style="background:#111;color:white;text-align:center">
+
+    <h1 style="color:#FFD700">
+    🎮 شرکت در کاستوم
+    </h1>
+
+    <form>
+
+    <input placeholder="نام بازیکن"><br><br>
+
+    <input placeholder="UID فری فایر"><br><br>
+
+    <button>
+    ثبت شرکت
+    </button>
+
+    </form>
+
+    </body>
+    </html>
+    """
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=10000)
