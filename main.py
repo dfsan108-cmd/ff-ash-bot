@@ -303,31 +303,6 @@ ASH ADMIN PANEL
 </body>
 </html>
 """
-    <html>
-    <body style="background:#111;color:white;text-align:center">
-
-    <h1 style="color:#FFD700">
-    🏆 FF ASH TOURNAMENT
-    </h1>
-
-    <form method="POST">
-
-    <input name="name" placeholder="نام"><br>
-    <input name="uid" placeholder="UID"><br>
-    <input name="phone" placeholder="شماره"><br>
-
-    <button>ثبت نام</button>
-
-    </form>
-
-    <h3 style="color:#FFD700">""" + msg + """
-
-    </h3>
-
-    </body>
-    </html>
-    """
-
 
 @app.route("/admin", methods=["GET","POST"])
 def admin():
