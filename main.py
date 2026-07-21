@@ -244,6 +244,7 @@ color:#FFD700;
 """ + TOURNAMENT["third"] + """
 </p>
 
+</div>
 
 <div class="box">
 
