@@ -432,6 +432,7 @@ def customs():
 
 @app.route("/join", methods=["GET","POST"])
 def join():
+    msg = ""
     if request.method=="POST":
 
         conn=db()
@@ -448,6 +449,12 @@ def join():
         conn.commit()
         conn.close()
         msg = "ثبت شرکت انجام شد ✅"
+        return """
+<h2 style="color:#FFD700">
+ثبت شرکت انجام شد ✅
+</h2>
+<a href="/customs">بازگشت</a>
+"""
     return """
     <html>
     <body style="background:#111;color:white;text-align:center">
@@ -455,7 +462,9 @@ def join():
     <h1 style="color:#FFD700">
     🎮 شرکت در کاستوم
     </h1>
-
+<p>
+""" + msg + """
+</p>
     <form method="POST">
 
 <input name="name" placeholder="نام بازیکن"><br><br>
