@@ -63,7 +63,9 @@ def home():
 <title>FF ASH Tournament</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="<meta name="google-site-verification" content="cbDP_66Gwq0JZuGfspUi8gMrnlVE0ubnS4UXj1st6p8" />">
+
+<meta name="google-site-verification" content="cbDP_66Gwq0JZuGfspUi8gMrnlVE0ubnS4UXj1st6p8" />
+
 <style>
 
 body{
